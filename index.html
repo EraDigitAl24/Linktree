@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar Texto</title>
+</head>
+<body>
+    <a href="#" id="copyLink">Haz clic aquí para copiar el texto</a>
+    <script>
+        document.getElementById('copyLink').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const textToCopy = "https://linktr.ee/info_eradigital24";
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            alert('Texto copiado al portapapeles');
+        });
+    </script>
+</body>
+</html>
